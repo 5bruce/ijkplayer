@@ -80,6 +80,10 @@ public class SampleMediaListFragment extends Fragment {
         mAdapter.addItem("http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/gear4/prog_index.m3u8", "bipbop advanced 1289x720 @ 1 Mbps");
         mAdapter.addItem("http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/gear5/prog_index.m3u8", "bipbop advanced 1920x1080 @ 2 Mbps");
         mAdapter.addItem("http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/gear0/prog_index.m3u8", "bipbop advanced 22.050Hz stereo @ 40 kbps");
+        mAdapter.addItem("http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/gear0/prog_index.m3u8", "bipbop advanced 22.050Hz stereo @ 40 kbps");
+        //mAdapter.addItem("http://akamedia2.lsops.net/live/smil:bbcnews_en.smil/playlist.m3u8", "BBC");
+        mAdapter.addItem("http://t.live.cntv.cn/m3u8/cctv6-380.m3u8", "CCTV6");
+        mAdapter.addItem("http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8", "HongKong");
     }
 
     final class SampleMediaItem {

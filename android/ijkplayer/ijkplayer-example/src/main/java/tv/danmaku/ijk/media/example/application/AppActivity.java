@@ -80,12 +80,13 @@ public class AppActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            SettingsActivity.intentTo(this);
-            return true;
-        } else if (id == R.id.action_recent) {
-            RecentMediaActivity.intentTo(this);
-        } else if (id == R.id.action_sample) {
+//        if (id == R.id.action_settings) {
+//            SettingsActivity.intentTo(this);
+//            return true;
+//        } else if (id == R.id.action_recent) {
+//            RecentMediaActivity.intentTo(this);
+//        } else
+        if (id == R.id.action_sample) {
             SampleMediaActivity.intentTo(this);
         }
 

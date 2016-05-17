@@ -7,12 +7,12 @@
         android:id="@+id/action_sample"
         android:title="@string/sample"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_recent"
-        android:title="@string/recent"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_settings"
-        android:title="@string/settings"
-        app:showAsAction="ifRoom" />
+    <!--<item-->
+        <!--android:id="@+id/action_recent"-->
+        <!--android:title="@string/recent"-->
+        <!--app:showAsAction="ifRoom" />-->
+    <!--<item-->
+        <!--android:id="@+id/action_settings"-->
+        <!--android:title="@string/settings"-->
+        <!--app:showAsAction="ifRoom" />-->
 </menu>
