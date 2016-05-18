@@ -30,6 +30,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -50,6 +51,7 @@ public class FileListFragment extends Fragment implements LoaderManager.LoaderCa
     private VideoAdapter mAdapter;
     private String mPath;
     private EditText et_input;
+    private Button btn;
 
     public static FileListFragment newInstance(String path) {
         FileListFragment f = new FileListFragment();
@@ -69,6 +71,9 @@ public class FileListFragment extends Fragment implements LoaderManager.LoaderCa
         mPathView = (TextView) viewGroup.findViewById(R.id.path_view);
         mFileListView = (ListView) viewGroup.findViewById(R.id.file_list_view);
         et_input = (EditText) viewGroup.findViewById(R.id.user_input);
+        btn = (Button) viewGroup.findViewById(R.id.btn);
+        et_input.setVisibility(View.GONE);
+        btn.setVisibility(View.GONE);
 
         mPathView.setVisibility(View.VISIBLE);
 

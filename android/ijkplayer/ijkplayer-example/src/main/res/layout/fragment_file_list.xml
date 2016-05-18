@@ -8,31 +8,42 @@
     android:paddingRight="@dimen/ijk_horizontal_margin"
     android:paddingTop="0dp">
 
-    <Button
-        android:text="播放"
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right" />
-
-    <EditText
-        android:id="@+id/user_input"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="input something"
-        android:lines="1" />
+        android:layout_height="match_parent">
 
-    <EditText
-    android:id="@+id/path_view"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:lines="1" />
 
-    <ListView
-        android:id="@+id/file_list_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:choiceMode="singleChoice"
-        tools:context=".file_list_view" />
+        <EditText
+            android:id="@+id/user_input"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="input something"
+            android:lines="1" />
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/user_input"
+            android:text="播放" />
+
+        <EditText
+            android:id="@+id/path_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_input"
+            android:lines="1" />
+
+        <ListView
+            android:id="@+id/file_list_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/path_view"
+            android:choiceMode="singleChoice"
+            tools:context=".file_list_view" />
+    </RelativeLayout>
 
 </LinearLayout>

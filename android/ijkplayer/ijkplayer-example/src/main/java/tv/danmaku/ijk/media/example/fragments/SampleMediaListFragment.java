@@ -41,6 +41,7 @@ public class SampleMediaListFragment extends Fragment {
     private SampleMediaAdapter mAdapter;
     private EditText et_input;
     private Button btn;
+    private EditText path_view;
 
     public static SampleMediaListFragment newInstance() {
         SampleMediaListFragment f = new SampleMediaListFragment();
@@ -54,7 +55,8 @@ public class SampleMediaListFragment extends Fragment {
         mFileListView = (ListView) viewGroup.findViewById(R.id.file_list_view);
         et_input = (EditText) viewGroup.findViewById(R.id.user_input);
         btn = (Button) viewGroup.findViewById(R.id.btn);
-
+        path_view = (EditText) viewGroup.findViewById(R.id.path_view);
+        path_view.setVisibility(View.GONE);
 
         return viewGroup;
     }
