@@ -21,13 +21,17 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import tv.danmaku.ijk.media.example.R;
 import tv.danmaku.ijk.media.example.activities.VideoActivity;
@@ -35,6 +39,8 @@ import tv.danmaku.ijk.media.example.activities.VideoActivity;
 public class SampleMediaListFragment extends Fragment {
     private ListView mFileListView;
     private SampleMediaAdapter mAdapter;
+    private EditText et_input;
+    private Button btn;
 
     public static SampleMediaListFragment newInstance() {
         SampleMediaListFragment f = new SampleMediaListFragment();
@@ -46,6 +52,10 @@ public class SampleMediaListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_file_list, container, false);
         mFileListView = (ListView) viewGroup.findViewById(R.id.file_list_view);
+        et_input = (EditText) viewGroup.findViewById(R.id.user_input);
+        btn = (Button) viewGroup.findViewById(R.id.btn);
+
+
         return viewGroup;
     }
 
@@ -66,6 +76,19 @@ public class SampleMediaListFragment extends Fragment {
                 VideoActivity.intentTo(activity, url, name);
             }
         });
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String strUrl = et_input.getText().toString();
+
+                String strTemp = "http://";
+                if (strUrl.length() < 7 || (strUrl.length() >= 7 && !(strUrl.substring(0,7).equals(strTemp)))) {
+                    Toast.makeText(getContext(), "输入的播放地址不合法，请输入一个合法地址", Toast.LENGTH_SHORT).show();
+                }else {
+                    VideoActivity.intentTo(activity, strUrl, "customInputUrl");
+                }
+            }
+        });
 
         mAdapter.addItem("http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/bipbop_4x3_variant.m3u8", "bipbop basic master playlist");
         mAdapter.addItem("http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear1/prog_index.m3u8", "bipbop basic 400x300 @ 232 kbps");
@@ -84,6 +107,8 @@ public class SampleMediaListFragment extends Fragment {
         //mAdapter.addItem("http://akamedia2.lsops.net/live/smil:bbcnews_en.smil/playlist.m3u8", "BBC");
         mAdapter.addItem("http://t.live.cntv.cn/m3u8/cctv6-380.m3u8", "CCTV6");
         mAdapter.addItem("http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8", "HongKong");
+        mAdapter.addItem("http://122.146.160.20:1935/live/1005_400.stream/playlist.m3u8","ActionMovie");
+        mAdapter.addItem("http://124.207.19.118:80/beijing-test/manifest.m3u8","BTV");
     }
 
     final class SampleMediaItem {

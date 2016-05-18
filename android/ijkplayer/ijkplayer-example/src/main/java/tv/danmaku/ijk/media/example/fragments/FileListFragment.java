@@ -30,6 +30,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -48,6 +49,7 @@ public class FileListFragment extends Fragment implements LoaderManager.LoaderCa
     private ListView mFileListView;
     private VideoAdapter mAdapter;
     private String mPath;
+    private EditText et_input;
 
     public static FileListFragment newInstance(String path) {
         FileListFragment f = new FileListFragment();
@@ -66,6 +68,7 @@ public class FileListFragment extends Fragment implements LoaderManager.LoaderCa
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_file_list, container, false);
         mPathView = (TextView) viewGroup.findViewById(R.id.path_view);
         mFileListView = (ListView) viewGroup.findViewById(R.id.file_list_view);
+        et_input = (EditText) viewGroup.findViewById(R.id.user_input);
 
         mPathView.setVisibility(View.VISIBLE);
 

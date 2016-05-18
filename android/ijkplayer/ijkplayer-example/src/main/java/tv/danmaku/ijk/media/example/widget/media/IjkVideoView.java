@@ -853,25 +853,26 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
     // Extend: Aspect Ratio
     //-------------------------
 
-    private static final int[] s_allAspectRatio = {
-            IRenderView.AR_ASPECT_FIT_PARENT,
-            IRenderView.AR_ASPECT_FILL_PARENT,
-            IRenderView.AR_ASPECT_WRAP_CONTENT,
-            // IRenderView.AR_MATCH_PARENT,
-            IRenderView.AR_16_9_FIT_PARENT,
-            IRenderView.AR_4_3_FIT_PARENT};
-    private int mCurrentAspectRatioIndex = 0;
-    private int mCurrentAspectRatio = s_allAspectRatio[0];
+//    private static final int[] s_allAspectRatio = {
+//            IRenderView.AR_ASPECT_FIT_PARENT,
+//            IRenderView.AR_ASPECT_FILL_PARENT,
+//            IRenderView.AR_ASPECT_WRAP_CONTENT,
+//            // IRenderView.AR_MATCH_PARENT,
+//            IRenderView.AR_16_9_FIT_PARENT,
+//            IRenderView.AR_4_3_FIT_PARENT};
+//    private int mCurrentAspectRatioIndex = 0;
+//    private int mCurrentAspectRatio = s_allAspectRatio[0];
+    private int mCurrentAspectRatio = IRenderView.AR_ASPECT_FIT_PARENT;
 
-    public int toggleAspectRatio() {
-        mCurrentAspectRatioIndex++;
-        mCurrentAspectRatioIndex %= s_allAspectRatio.length;
-
-        mCurrentAspectRatio = s_allAspectRatio[mCurrentAspectRatioIndex];
-        if (mRenderView != null)
-            mRenderView.setAspectRatio(mCurrentAspectRatio);
-        return mCurrentAspectRatio;
-    }
+//    public int toggleAspectRatio() {
+//        mCurrentAspectRatioIndex++;
+//        mCurrentAspectRatioIndex %= s_allAspectRatio.length;
+//
+//        mCurrentAspectRatio = s_allAspectRatio[mCurrentAspectRatioIndex];
+//        if (mRenderView != null)
+//            mRenderView.setAspectRatio(mCurrentAspectRatio);
+//        return mCurrentAspectRatio;
+//    }
 
     //-------------------------
     // Extend: Render
@@ -900,67 +901,67 @@ public class IjkVideoView extends FrameLayout implements MediaController.MediaPl
         setRender(mCurrentRender);
     }
 
-    public int toggleRender() {
-        mCurrentRenderIndex++;
-        mCurrentRenderIndex %= mAllRenders.size();
+//    public int toggleRender() {
+//        mCurrentRenderIndex++;
+//        mCurrentRenderIndex %= mAllRenders.size();
+//
+//        mCurrentRender = mAllRenders.get(mCurrentRenderIndex);
+//        setRender(mCurrentRender);
+//        return mCurrentRender;
+//    }
 
-        mCurrentRender = mAllRenders.get(mCurrentRenderIndex);
-        setRender(mCurrentRender);
-        return mCurrentRender;
-    }
-
-    @NonNull
-    public static String getRenderText(Context context, int render) {
-        String text;
-        switch (render) {
-            case RENDER_NONE:
-                text = context.getString(R.string.VideoView_render_none);
-                break;
-            case RENDER_SURFACE_VIEW:
-                text = context.getString(R.string.VideoView_render_surface_view);
-                break;
-            case RENDER_TEXTURE_VIEW:
-                text = context.getString(R.string.VideoView_render_texture_view);
-                break;
-            default:
-                text = context.getString(R.string.N_A);
-                break;
-        }
-        return text;
-    }
+//    @NonNull
+//    public static String getRenderText(Context context, int render) {
+//        String text;
+//        switch (render) {
+//            case RENDER_NONE:
+//                text = context.getString(R.string.VideoView_render_none);
+//                break;
+//            case RENDER_SURFACE_VIEW:
+//                text = context.getString(R.string.VideoView_render_surface_view);
+//                break;
+//            case RENDER_TEXTURE_VIEW:
+//                text = context.getString(R.string.VideoView_render_texture_view);
+//                break;
+//            default:
+//                text = context.getString(R.string.N_A);
+//                break;
+//        }
+//        return text;
+//    }
 
     //-------------------------
     // Extend: Player
     //-------------------------
-    public int togglePlayer() {
-        if (mMediaPlayer != null)
-            mMediaPlayer.release();
+//    public int togglePlayer() {
+//        if (mMediaPlayer != null)
+//            mMediaPlayer.release();
+//
+//        if (mRenderView != null)
+//            mRenderView.getView().invalidate();
+//        openVideo();
+//        return mSettings.getPlayer();
+//    }
 
-        if (mRenderView != null)
-            mRenderView.getView().invalidate();
-        openVideo();
-        return mSettings.getPlayer();
-    }
-
-    @NonNull
-    public static String getPlayerText(Context context, int player) {
-        String text;
-        switch (player) {
-            case Settings.PV_PLAYER__AndroidMediaPlayer:
-                text = context.getString(R.string.VideoView_player_AndroidMediaPlayer);
-                break;
-            case Settings.PV_PLAYER__IjkMediaPlayer:
-                text = context.getString(R.string.VideoView_player_IjkMediaPlayer);
-                break;
-            case Settings.PV_PLAYER__IjkExoMediaPlayer:
-                text = context.getString(R.string.VideoView_player_IjkExoMediaPlayer);
-                break;
-            default:
-                text = context.getString(R.string.N_A);
-                break;
-        }
-        return text;
-    }
+//    @NonNull
+//    public static String getPlayerText(Context context, int player) {
+//        String text;
+//        switch (player) {
+//            case Settings.PV_PLAYER__AndroidMediaPlayer:
+//                text = context.getString(R.string.VideoView_player_AndroidMediaPlayer);
+//                break;
+//            case Settings.PV_PLAYER__IjkMediaPlayer:
+//                text = context.getString(R.string.VideoView_player_IjkMediaPlayer);
+//                break;
+//            case Settings.PV_PLAYER__IjkExoMediaPlayer:
+//                text = context.getString(R.string.VideoView_player_IjkExoMediaPlayer);
+//                break;
+//            default:
+//                text = context.getString(R.string.N_A);
+//                break;
+//        }
+//        return text;
+//    }
 
     public IMediaPlayer createPlayer(int playerType) {
         IMediaPlayer mediaPlayer = null;
